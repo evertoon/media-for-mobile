@@ -30,15 +30,18 @@ public class VideoFormatAndroid extends VideoFormat {
     }
 
     public VideoFormatAndroid(String mimeType, int width, int height) {
-        if (width > 1280 || height > 1280) {
-            if (width > height) {
-                width = 1280;
-                height = 720;
-            } else {
-                width = 720;
-                height = 1280;
-            }
-        }
+        // EVERTOON-BEGIN
+        // Disabled to allow recording of arbitrary video sizes.
+//        if (width > 1280 || height > 1280) {
+//            if (width > height) {
+//                width = 1280;
+//                height = 720;
+//            } else {
+//                width = 720;
+//                height = 1280;
+//            }
+//        }
+        // EVERTOON-END
         this.mediaFormat = android.media.MediaFormat.createVideoFormat(mimeType, width, height);
         setVideoFrameSize(width, height);
         setVideoCodec(mimeType);
